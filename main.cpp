@@ -38,11 +38,10 @@ int main(int argc, char** argv) {
 
   std::cout << "Input:  " << in << std::endl;
 */  
-  std::pair<std::vector<unsigned int>, std::vector<unsigned int>> out 
-    { in.size(), in.size() };
+  std::vector<unsigned int> out (in.size());
   
   auto start = high_resolution_clock::now();
-  lyndon_array(in.data(), out.first.data(), in.size());
+  lyndon_array(in.data(), out.data(), in.size());
   auto stop = high_resolution_clock::now();
 
   auto duration = duration_cast<milliseconds>(stop - start);
